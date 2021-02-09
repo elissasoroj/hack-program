@@ -1,0 +1,3 @@
+[console_scripts]
+sketchprompt = sketchprompt.__main__:main
+
