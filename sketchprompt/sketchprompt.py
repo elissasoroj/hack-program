@@ -120,3 +120,5 @@ if __name__ == "__main__":
     colorscheme()
     color()
     timer(timelimit.timetosec)
+
+    ~code/git/hacks/hack-program/sketchprompt/mallet.mp3

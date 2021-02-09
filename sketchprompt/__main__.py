@@ -59,6 +59,16 @@ def parse_command_line():
         help="returns a random time limit",
         action="store_true")
 
+    parser.add_argument(
+        "t",
+        type = int,
+        help="time in seconds")
+
+    parser.add_argument(
+        "-c", "--clock",
+        help="starts a coundown clock",
+        action="store_true")
+
     # parse args
     args = parser.parse_args()
 
@@ -99,6 +109,10 @@ def main():
         timelimit()
         scheme()
         color()
+        timer(timelimit.timetosec)
+
+    if args.clock:
+        timer(args.t)
 
 
 if __name__ == "__main__":
