@@ -3,9 +3,10 @@
 """
 Call `pip install -e .` to install package locally for testing.
 Required packages:
+numpy
+pandas
 PyObjC
 playsound
-csv
 random
 time
 """
@@ -20,7 +21,7 @@ setup(
     author_email="ess2239@columbia.edu",
     license="GPLv3",
     description="A package to help you fill your sketchbook",
-    install_requires = ["PyObjC", "playsound", "csv", "random", "time"],
+    install_requires = ["numpy", "pandas", "PyObjC", "playsound", "random", "time"],
     classifiers=["Programming Language :: Python :: 3"],
     entry_points={
         "console_scripts": ["sketchprompt = sketchprompt.__main__:main"]

@@ -10,11 +10,13 @@ A function that generates a random sketch prompt with options:
 Also provides a countdown timer
 
 """
-import csv
 import os
 import random
 import time
 import playsound
+import keyboard
+import pandas as pd
+import numpy as np
 
 here = os.path.dirname(os.path.abspath(__file__))
 
@@ -25,69 +27,64 @@ def func():
     with open(os.path.join(here, "data_subdir", "textfile.txt"), "rt") as f:
         text = f.read()
 
-# Read in lists
-with open(os.path.join(here, "lists", "animals.csv"), newline='', encoding='utf-8-sig') as f1:
-        reader1 = csv.reader(f1)
-        animals = list(reader1)
-
-with open(os.path.join(here, "lists", "plants.csv"), newline='', encoding='utf-8-sig') as f2:
-        reader2 = csv.reader(f2)
-        plants = list(reader2)
-
-with open(os.path.join(here, "lists", "objects.csv"), newline='', encoding='utf-8-sig') as f3:
-        reader3 = csv.reader(f3)
-        objects = list(reader3)
-
-with open(os.path.join(here, "lists", "limits.csv"), newline='', encoding='utf-8-sig') as f4:
-        reader4 = csv.reader(f4)
-        limits = list(reader4)
-
-with open(os.path.join(here, "lists", "schemes.csv"), newline='', encoding='utf-8-sig') as f5:
-        reader5 = csv.reader(f5)
-        schemes = list(reader5)
-
-with open(os.path.join(here, "lists", "colors.csv"), newline='', encoding='utf-8-sig') as f6:
-        reader6 = csv.reader(f6)
-        colors = list(reader6)
+# Read in data lists
+master = pd.read_csv(os.path.join(here, "lists", "master.csv"))
 
 #Define variables
-ALLSUB = [animals, plants, objects]
 timeout = []
 timetosec = {}
+
+#Define masks
+allsub = master['type'] == 'subject'
+animals = master['category'] == 'animal'
+plants = master['category'] == 'plant'
+objects = master['category'] == 'household object'
+colors = master['type'] == 'color'
+schemes = master['type'] == 'scheme'
+limits = master['type'] == 'limits'
 
 
 def subject(arg):
     "returns a subject"
 
-    if arg == "animal":
-        print(random.choice(animals))
+    if arg == "plantae":
+        plantae_raw = pd.read_csv(os.path.join(here, "lists", "plantae.csv"))
+        plantae = plantae_raw['species']
+        print(plantae.sample().to_string(index=False))
+
+    elif arg == "chordata":
+        chordata_raw = pd.read_csv(os.path.join(here, "lists", "chordata.csv"))
+        chordata = chordata_raw['species']
+        print(chordata.sample().to_string(index=False))
+
+    elif arg == "animal":
+        print(master.loc[animals]['data'].sample().to_string(index=False))
 
     elif arg == "plant":
-        print(random.choice(plants))
+        print(master.loc[plants]['data'].sample().to_string(index=False))
 
     elif arg == "object":
-        print(random.choice(objects))
+        print(master.loc[objects]['data'].sample().to_string(index=False))
 
     else:
-        rand = random.choice(ALLSUB)
-        print("subject:", *random.choice(rand))
+        print(master.loc[allsub]['data'].sample().to_string(index=False))
 
 
 
 def timelimit():
     "returns a time limit"
-    timelimit.timeout = random.choice(limits)
-    timelimit.timetosec = int(timelimit.timeout[0])*60
-    print("time limit:", timelimit.timeout[0], "minute(s)")
+    timelimit.timeout = master.loc[master['type'] == 'limit']['data'].sample()
+    timelimit.timetosec = int(timelimit.timeout)*60
+    print(" time limit:", timelimit.timeout.to_string(index=False), "minute(s)")
     
 
 def scheme():
     "returns a color scheme"
-    print("color scheme:", *random.choice(schemes))
+    print(master.loc[schemes]['data'].sample().to_string(index=False))
 
 def color():
     "returns a main color for the color scheme"
-    print("main hue:", *random.choice(colors))  
+    print(master.loc[colors]['data'].sample().to_string(index=False))
 
 def timer(t):
     """
@@ -103,22 +100,23 @@ def timer(t):
     pip3 install -U PyObjC
     pip3 install playsound
     """
-    while t:
-        mins, secs = divmod(t, 60)
-        timeformat = '{:02d}:{:02d}'.format(mins, secs)
-        print(timeformat, end='\r')
-        time.sleep(1)
-        t -= 1
-    from playsound import playsound
-    playsound(os.path.join(here, "mallet.mp3"))
-    print("Time's Up!\n\n\n\n\n")
+    try:
+        while t:
+            mins, secs = divmod(t, 60)
+            timeformat = '{:02d}:{:02d}'.format(mins, secs)
+            print(timeformat, end='\r')
+            time.sleep(1)
+            t -= 1
+        from playsound import playsound
+        playsound(os.path.join(here, "mallet.mp3"))
+        print("Time's Up!\n\n\n\n\n")
 
+    except KeyboardInterrupt:
+        pass
 
 if __name__ == "__main__":
     subject("")
     timelimit()
-    colorscheme()
+    scheme()
     color()
     timer(timelimit.timetosec)
-
-    ~code/git/hacks/hack-program/sketchprompt/mallet.mp3

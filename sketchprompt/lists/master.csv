@@ -1,0 +1,135 @@
+﻿type,data,category
+subject,mole salamander,animal
+subject,elephant shrew,animal
+subject,pika,animal
+subject,harpy eagle,animal
+subject,kea,animal
+subject,whale shark,animal
+subject,skate,animal
+subject,requiem shark,animal
+subject,prarie chicken,animal
+subject,cuttlefish,animal
+subject,mantis shrimp,animal
+subject,ocelot,animal
+subject,rabbit fish,animal
+subject,scorpion,animal
+subject,thylacine,animal
+subject,hummingbird,animal
+subject,african wild dog,animal
+subject,hawkmoth,animal
+subject,coati,animal
+subject,desert hare,animal
+subject,binturong,animal
+subject,otter,animal
+subject,quetzal,animal
+subject,beluga whale,animal
+subject,gila monster,animal
+subject,glass frog,animal
+subject,nightjar,animal
+subject,coelacanth,animal
+subject,red panda,animal
+subject,cicada,animal
+subject,nudibranch,animal
+subject,isopod,animal
+subject,ibis,animal
+subject,okapi,animal
+subject,spoonbill,animal
+subject,narwhal,animal
+subject,sun bear,animal
+subject,quoka,animal
+subject,markhor,animal
+subject,cormorant,animal
+subject,bird of paradise,animal
+subject,flying squirrel,animal
+subject,pink fairy armadillo,animal
+subject,bat,animal
+subject,chinese water deer,animal
+subject,jumping spider,animal
+subject,seahorse,animal
+subject,mug,household object
+subject,teacup,household object
+subject,bone,household object
+subject,tooth,household object
+subject,skull,household object
+subject,shell,household object
+subject,pinecone,household object
+subject,acorn,household object
+subject,vase,household object
+subject,potted plant,household object
+subject,pitcher,household object
+subject,dumbbell,household object
+subject,water bottle,household object
+subject,sliced fruit,household object
+subject,kitchen appliance,household object
+subject,kitchen utensil,household object
+subject,jar,household object
+subject,sauce container,household object
+subject,spice container,household object
+subject,lamp,household object
+subject,shoe,household object
+subject,tea tin,household object
+subject,teapot,household object
+subject,fruit,household object
+subject,vegetable,household object
+subject,pet toy,household object
+subject,pet,household object
+subject,bird feeder,household object
+subject,bottle of cleaning solution,household object
+subject,sponge,household object
+subject,sewing machine,household object
+subject,spool of thread,household object
+subject,slipper orchid,plant
+subject,pitcher plant,plant
+subject,wood fern,plant
+subject,witch hazel,plant
+subject,iris,plant
+subject,chestnut,plant
+subject,begonia,plant
+subject,cactus,plant
+subject,holly,plant
+subject,hellebore,plant
+subject,poppy,plant
+subject,rutabaga,plant
+subject,orchid,plant
+subject,bat flower,plant
+subject,bleeding hearts,plant
+subject,passion flower,plant
+subject,arum lily,plant
+subject,lithops,plant
+subject,ficus,plant
+subject,fig,plant
+subject,pine,plant
+subject,juniper,plant
+subject,tree fern,plant
+subject,lycophyte,plant
+subject,water lily,plant
+subject,dogwood,plant
+color,red,basic
+color,yellow,basic
+color,orange,basic
+color,blue,basic
+color,green,basic
+color,purple,basic
+color,pink,basic
+color,turquoise,fancy
+color,magenta,fancy
+color,sienna,fancy
+color,olive,fancy
+color,#6f9eaf,hex
+color,#a9294f,hex
+color,#c7753d,hex
+color,#f6d887,hex
+scheme,monochrome,1
+scheme,complimentary,2
+scheme,analogous,2
+scheme,triad,3
+scheme,split complementary,3
+limit,1,warmup
+limit,5,warmup
+limit,10,sketch
+limit,15,sketch
+limit,20,sketch
+limit,25,sketch
+limit,30,sketch
+limit,45,sketch
+limit,60,full

@@ -22,30 +22,40 @@ def parse_command_line():
 
     # add long args
     parser.add_argument(
-        "--subject",
+        "--subject", "-sub",
         help="returns random sketch subject",
         action="store_true")
 
     # add long args
     parser.add_argument(
-        "--animal",
+        "--animal", "-a",
         help="returns a random animal subject",
         action="store_true")
 
     # add long args
     parser.add_argument(
-        "--plant",
+        "--plant", "-p",
         help="returns a random plant subject",
         action="store_true")
 
     # add long args
     parser.add_argument(
-        "--object",
+        "--object", "-ho",
         help="returns a random household object",
         action="store_true")
 
     parser.add_argument(
-        "--color",
+        "--chordata", "--gbifa",
+        help="returns a random animal species from GBIF",
+        action="store_true")
+
+    parser.add_argument(
+        "--plantae", "--gbifp",
+        help="returns a random plant species from GBIF",
+        action="store_true")
+
+    parser.add_argument(
+        "--color", "-col",
         help="returns a hue",
         action="store_true")
 
@@ -62,6 +72,7 @@ def parse_command_line():
     parser.add_argument(
         "t",
         type = int,
+        nargs="?",
         help="time in seconds")
 
     parser.add_argument(
@@ -94,6 +105,10 @@ def main():
         subject('plant')
     elif args.object:
         subject('object')
+    elif args.chordata:
+        subject('chordata')
+    elif args.plantae:
+        subject('plantae')
 
     if args.scheme:
         scheme()
