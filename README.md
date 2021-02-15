@@ -8,7 +8,8 @@ sketchprompt program
 sketchprompt -h
 ```
 ```bash
-usage: sketchprompt [-h] [--subject] [--animal] [--plant] [--object] [--chordata] [--plantae] [--scheme] [--color] [--time] [--clock]
+usage: sketchprompt [-h] [--subject] [--animal] [--plant] [--object] [--chordata] 
+					[--plantae] [--scheme] [--color] [--time] [--clock]
 
 optional arguments:
  -h, --help           show this help message and exit
