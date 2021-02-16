@@ -77,7 +77,7 @@ def timelimit():
     "returns a time limit"
     timelimit.timeout = master.loc[master['type'] == 'limit']['data'].sample()
     timelimit.timetosec = int(timelimit.timeout)*60
-    print(" time limit:", timelimit.timeout.to_string(index=False), "minute(s)")
+    print("time limit:", timelimit.timeout.to_string(index=False).strip(), "minute(s)")
     
 
 def scheme():
@@ -91,7 +91,7 @@ def color():
     from rich import color
     color.colout = master.loc[colors]['data'].sample().to_string(index=False).strip()
     color.colalt = master.loc[master['data'] == color.colout]['alttext'].to_string(index=False).strip()
-    rprint(color.colalt, f":[default on {color.colout}]                 [/]")
+    rprint(color.colalt, f": [default on {color.colout}]                 [/]")
 
 def timer(t):
     """
@@ -123,7 +123,7 @@ def timer(t):
 
 if __name__ == "__main__":
     subject("")
-    timelimit()
     scheme()
     color()
+    timelimit()
     timer(timelimit.timetosec)

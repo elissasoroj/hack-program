@@ -77,7 +77,7 @@ def parse_command_line():
 
     parser.add_argument(
         "-c", "--clock",
-        help="starts a coundown clock",
+        help="starts a coundown clock; use Ctrl+C to exit",
         action="store_true")
 
     # parse args
@@ -96,44 +96,56 @@ def main():
     # get arguments from command line as a dict-like object
     args = parse_command_line()
 
-    # pass argument to call darwinday function
+    # pass argument to call sketchprompt function
     if args.subject:
+        print("----------- \nSubject:")
         subject("")
     elif args.animal:
+        print("----------- \nSubject:")
         subject('animal')
     elif args.plant:
-        subject('plant')
+        print("----------- \nSubject:")
+        subject('plant') 
     elif args.object:
+        print("----------- \nSubject:")
         subject('object')
     elif args.chordata:
+        print("----------- \nSubject:")
         subject('chordata')
     elif args.plantae:
+        print("----------- \nSubject:")
         subject('plantae')
 
     if args.scheme:
+        print("----------- \nColor Scheme:")
         scheme()
 
     if args.color:
+        print("----------- \nColor:")
         color()
 
     if args.time:
+        print("----------- \nTime Limit:")
         timelimit()
 
     if args.prompt:
+        print("----------- \nFull Prompt:")
         subject("")
-        timelimit()
         scheme()
         color()
+        timelimit()
         timer(timelimit.timetosec)
 
     if args.clock:
+        print("----------- \nTimer:")
         timer(args.t)
 
 
 if __name__ == "__main__":
+    print("----------- \nFull Prompt:")
     subject("")
-    timelimit()
     colorscheme()
     color()
+    timelimit()
     timer(timelimit.timetosec)
 
