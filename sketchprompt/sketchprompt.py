@@ -11,12 +11,12 @@ Also provides a countdown timer
 
 """
 import os
-import random
 import time
 import playsound
 import keyboard
 import pandas as pd
 import numpy as np
+import rich
 
 here = os.path.dirname(os.path.abspath(__file__))
 
@@ -33,6 +33,8 @@ master = pd.read_csv(os.path.join(here, "lists", "master.csv"))
 #Define variables
 timeout = []
 timetosec = {}
+colout = []
+coldisplay = []
 
 #Define masks
 allsub = master['type'] == 'subject'
@@ -50,24 +52,24 @@ def subject(arg):
     if arg == "plantae":
         plantae_raw = pd.read_csv(os.path.join(here, "lists", "plantae.csv"))
         plantae = plantae_raw['species']
-        print(plantae.sample().to_string(index=False))
+        print(plantae.sample().to_string(index=False).strip())
 
     elif arg == "chordata":
         chordata_raw = pd.read_csv(os.path.join(here, "lists", "chordata.csv"))
         chordata = chordata_raw['species']
-        print(chordata.sample().to_string(index=False))
+        print(chordata.sample().to_string(index=False).strip())
 
     elif arg == "animal":
-        print(master.loc[animals]['data'].sample().to_string(index=False))
+        print(master.loc[animals]['data'].sample().to_string(index=False).strip())
 
     elif arg == "plant":
-        print(master.loc[plants]['data'].sample().to_string(index=False))
+        print(master.loc[plants]['data'].sample().to_string(index=False).strip())
 
     elif arg == "object":
-        print(master.loc[objects]['data'].sample().to_string(index=False))
+        print(master.loc[objects]['data'].sample().to_string(index=False).strip())
 
     else:
-        print(master.loc[allsub]['data'].sample().to_string(index=False))
+        print(master.loc[allsub]['data'].sample().to_string(index=False).strip())
 
 
 
@@ -80,11 +82,16 @@ def timelimit():
 
 def scheme():
     "returns a color scheme"
-    print(master.loc[schemes]['data'].sample().to_string(index=False))
+    print(master.loc[schemes]['data'].sample().to_string(index=False).strip())
 
 def color():
     "returns a main color for the color scheme"
-    print(master.loc[colors]['data'].sample().to_string(index=False))
+    #print(master.loc[colors]['data'].sample().to_string(index=False))
+    from rich import print as rprint
+    from rich import color
+    color.colout = master.loc[colors]['data'].sample().to_string(index=False).strip()
+    color.colalt = master.loc[master['data'] == color.colout]['alttext'].to_string(index=False).strip()
+    rprint(color.colalt, f":[default on {color.colout}]                 [/]")
 
 def timer(t):
     """
@@ -107,10 +114,10 @@ def timer(t):
             print(timeformat, end='\r')
             time.sleep(1)
             t -= 1
+        print("Time's Up!\n\n")
         from playsound import playsound
         playsound(os.path.join(here, "mallet.mp3"))
-        print("Time's Up!\n\n\n\n\n")
-
+        
     except KeyboardInterrupt:
         pass
 

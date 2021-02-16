@@ -20,7 +20,7 @@ optional arguments:
  --object, -ho        returns a random household object
  --chordata, --gbifa  returns a random animal species from GBIF
  --plantae, --gbifp   returns a random plant species from GBIF
- --color, -col        returns a hue
+ --color, -col        returns a hue to use as base
  --scheme             returns a color scheme
  --time               returns a random time limit
  -c, --clock          starts a coundown clock (enter time in seconds)
