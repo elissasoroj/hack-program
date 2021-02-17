@@ -1,6 +1,9 @@
 
 
 *.egg-info
-sketchprompt/__pycache__
-sketchprompt/scraps
-*.DS_Store
+**/__pycache__
+/__pycache__/**
+.DS_Store
+**/scraps
+scraps/**
+
