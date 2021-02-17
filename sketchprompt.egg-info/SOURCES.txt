@@ -1,7 +1,0 @@
-README.md
-setup.py
-sketchprompt.egg-info/PKG-INFO
-sketchprompt.egg-info/SOURCES.txt
-sketchprompt.egg-info/dependency_links.txt
-sketchprompt.egg-info/entry_points.txt
-sketchprompt.egg-info/top_level.txt
