@@ -2,8 +2,8 @@
 
 *.egg-info
 **/__pycache__
-/__pycache__/**
+__pycache__/**
 .DS_Store
 **/scraps
 scraps/**
-
+sketchprompt/.DS_Store
