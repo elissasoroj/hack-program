@@ -1,7 +1,7 @@
 
 
 *.egg-info
-/sketchprompt/__pycache__
-/sketchprompt/scraps
+/sketchprompt/__pycache__/
+sketchprompt/scraps/
 .DS_Store
-/sketchprompt/.DS_Store
+sketchprompt/.DS_Store
